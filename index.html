@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stagwell Sage - HR Ticket Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="StagwellSage.png" alt="Stagwell Sage Logo">
+      <div class="header-content">
+        <h1>STAGWELL SAGE</h1>
+        <p>Future of A.I. HR Implementation</p>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="left-panel">
+        <div class="search-section">
+          <h2 class="section-title">
+            <span class="section-icon">🔍</span>
+            Search Solutions
+          </h2>
+          <div class="form-group">
+            <label for="searchInput">Describe your issue:</label>
+            <input type="text" id="searchInput" class="form-control" placeholder="e.g., vendor access, expense sheet, portal login..." />
+          </div>
+          <button onclick="searchTickets()" class="search-button" id="searchBtn">
+            <span id="searchBtnText">Search Solutions</span>
+            <span id="searchBtnSpinner" class="loading-spinner" style="display: none;"></span>
+          </button>
+        </div>
+        
+        <div class="quick-actions-section">
+          <h3 class="section-title">
+            <span class="section-icon">⚡</span>
+            Quick Actions
+          </h3>
+          <div class="quick-actions-grid">
+            <div class="action-card" onclick="showSearchTips()">
+              <div class="action-icon">🔍</div>
+              <div class="action-title">Search Tips</div>
+              <div class="action-description">How to find solutions faster</div>
+            </div>
+            <div class="action-card" onclick="showCommonIssues()">
+              <div class="action-icon">📋</div>
+              <div class="action-title">Common Issues</div>
+              <div class="action-description">Frequently asked questions</div>
+            </div>
+            <div class="action-card" onclick="showQuickLinks()">
+              <div class="action-icon">🔗</div>
+              <div class="action-title">Quick Links</div>
+              <div class="action-description">Direct access to systems</div>
+            </div>
+            <div class="action-card" onclick="showContactHR()">
+              <div class="action-icon">📞</div>
+              <div class="action-title">Contact HR</div>
+              <div class="action-description">Get immediate assistance</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-section">
+        <h2 class="section-title">
+          <span class="section-icon">💡</span>
+          Found Solutions
+        </h2>
+        <div id="results"></div>
+      </div>
+    </div>
+
+    <div class="new-ticket-section">
+      <h2 class="section-title">
+        <span class="section-icon">📝</span>
+        Still Need Help?
+      </h2>
+      <div class="form-group">
+        <label for="ticketSubject">Subject:</label>
+        <input type="text" id="ticketSubject" class="form-control" placeholder="Brief description of your issue" />
+      </div>
+      <div class="form-group">
+        <label for="ticketDescription">Description:</label>
+        <textarea id="ticketDescription" class="form-control" rows="4" placeholder="Detailed description of your issue..."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="similarTicket">Link to Similar Ticket (Optional):</label>
+        <select id="similarTicket" class="form-control">
+          <option value="">Select a similar ticket if found above</option>
+        </select>
+      </div>
+      <button onclick="submitTicket()" class="submit-button">Submit New Ticket</button>
+    </div>
+
+    <div class="hr-dashboard">
+      <h2 class="section-title">
+        <span class="section-icon">👥</span>
+        HR Team Dashboard
+      </h2>
+      <div class="dashboard-tabs">
+        <button class="tab-button active" onclick="showTab('grouping')">Ticket Grouping</button>
+        <button class="tab-button" onclick="showTab('analytics')">Analytics</button>
+        <button class="tab-button" onclick="showTab('trends')">Trends</button>
+      </div>
+      
+      <div id="groupingTab" class="tab-content">
+        <h3 class="section-title">
+          <span class="section-icon">📋</span>
+          Group Similar Tickets
+        </h3>
+        <div id="groupingContent"></div>
+      </div>
+      
+      <div id="analyticsTab" class="tab-content" style="display: none;">
+        <h3 class="section-title">
+          <span class="section-icon">📊</span>
+          Detailed Analytics
+        </h3>
+        <div id="analyticsContent"></div>
+      </div>
+      
+      <div id="trendsTab" class="tab-content" style="display: none;">
+        <h3 class="section-title">
+          <span class="section-icon">📈</span>
+          Issue Trends
+        </h3>
+        <div id="trendsContent"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html> 
